@@ -6,7 +6,7 @@ html
     = csrf_meta_tags
 
   body
-    .navbar.navbar-fixed-top role='navigation'
+    .navbar.navbar-fixed-top.navbar-default role='navigation'
       .container
         .navbar-header
           button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-collapse"
@@ -17,9 +17,10 @@ html
           = link_to 'RemoteModals Demo', root_path, class: 'navbar-brand'
         .collapse.navbar-collapse
           ul.nav.navbar-nav
-            li=link_to 'Add message', new_message_path
+            li=link_to 'Add message', new_message_path, data: { modal: true }
 
     .container
       = yield
 
+    #modal-holder
     = javascript_include_tag 'application'

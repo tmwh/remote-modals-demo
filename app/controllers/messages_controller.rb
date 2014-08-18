@@ -9,12 +9,12 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
-    respond_with @message
+    respond_modal_with @message
   end
 
   def create
     @message = Message.create(message_params)
-    respond_with @message, location: messages_path
+    respond_modal_with @message, location: messages_path
   end
 
   def destroy
