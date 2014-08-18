@@ -1,0 +1,8 @@
+.panel.panel-default
+  .panel-heading
+    h3.panel-title
+      = message.name
+      = link_to message, data: {confirm: 'Are you sure?'}, method: :delete, class: 'remove-message' do
+        |&times;
+  .panel-body
+    = simple_format message.body

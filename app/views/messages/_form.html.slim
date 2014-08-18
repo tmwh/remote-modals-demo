@@ -1,0 +1,7 @@
+= simple_form_for(@message) do |f|
+  .form-inputs
+    = f.input :name
+    = f.input :body
+
+  .form-actions
+    = f.button :submit, class: 'btn-success'

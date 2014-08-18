@@ -48,12 +48,10 @@ SimpleForm.setup do |config|
   config.wrappers :bootstrap3, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
     b.use :html5
     b.use :placeholder
-    b.use :label, wrap_with: { tag: 'div', class: 'col-sm-2' }
-    b.wrapper tag: 'div', class: 'col-sm-10 controls' do |ba|
-      ba.use :input
-      ba.use :error, wrap_with: { tag: 'span', class: 'help-block' }
-      ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
-    end
+    b.use :label
+    b.use :input
+    b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end
 
 
@@ -153,5 +151,5 @@ SimpleForm.setup do |config|
   # config.cache_discovery = !Rails.env.development?
 
   # Default class for inputs
-  # config.input_class = nil
+  config.input_class = 'form-control'
 end
