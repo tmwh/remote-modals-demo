@@ -2,7 +2,18 @@
 
 This application shows how to implement remote modals windows in rails application.
 
-It is the demo for the article:
+The original version was the code for the article: <http://www.jetthoughts.com/blog/tech/2014/08/27/5-steps-to-add-remote-modals-to-your-rails-app.html>. However this code uses [Slim](http://slim-lang.com/) whereas the article doesn't. 
 
-Working demo you can find on heroku: <http://remote-modals-demo.herokuapp.com/>
+Working (well, it's not) demo you can find on heroku: <http://remote-modals-demo.herokuapp.com/>
 
+Once the setup is done, to actually use it, the magic in the controller is:
+```ruby
+	class MessagesController < ApplicationController
+
+	respond_to :html, :json
+
+	def new
+    	@message = Message.new
+    	respond_modal_with @message
+	end
+```
