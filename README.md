@@ -9,11 +9,15 @@ Working (well, it's not) demo you can find on heroku: <http://remote-modals-demo
 Once the setup is done, to actually use it, the magic in the controller is:
 ```ruby
 	class MessagesController < ApplicationController
+		respond_to :html, :json
 
-	respond_to :html, :json
-
-	def new
-    	@message = Message.new
-    	respond_modal_with @message
+		def new
+    		@message = Message.new
+    		respond_modal_with @message
+		end
 	end
+```
+And in the view, to actually invoke the modal, you say:
+```HTML+ERB
+	<%= link_to 'Add message', new_message_path, data: { modal: true } %>
 ```
