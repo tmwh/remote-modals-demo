@@ -4,5 +4,6 @@
       = message.name
       = link_to message, data: {confirm: 'Are you sure?'}, method: :delete, class: 'remove-message' do
         |&times;
+      = link_to 'Edit', edit_message_path(message), class: 'btn btn-warning remove-message', data: { modal: true }
   .panel-body
     = simple_format message.body
