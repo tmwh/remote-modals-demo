@@ -2,7 +2,10 @@
   .panel-heading
     h3.panel-title
       = message.name
-      = link_to message, data: {confirm: 'Are you sure?'}, method: :delete, class: 'remove-message' do
-        |&times;
+      = link_to message, data: {confirm: 'Are you sure?'}, method: :delete, class: 'controls' do
+        span class="glyphicon glyphicon-remove"
+      span class="controls" &nbsp;
+      = link_to edit_message_path(message), data: { modal: true }, class: 'controls' do
+      	span class="glyphicon glyphicon-edit"
   .panel-body
     = simple_format message.body

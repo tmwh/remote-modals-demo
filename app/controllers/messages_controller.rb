@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :destroy]
+  before_action :set_message, only: [:show, :destroy, :edit, :update]
 
   respond_to :html, :json
 
@@ -20,6 +20,15 @@ class MessagesController < ApplicationController
   def destroy
     @message.destroy
     respond_with @message
+  end
+
+  def edit
+    respond_modal_with @message
+  end
+
+  def update
+    flash[:notice] = "Message udated" if @message.update(message_params)
+    respond_modal_with @message, location: messages_path
   end
 
   private
